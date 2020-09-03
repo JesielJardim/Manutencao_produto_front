@@ -1,0 +1,88 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Informe os campos para pesquisa</h2>
+    <div> <!-- [hidden]="submitted">-->
+      <form [formGroup]="formSearch" class="col-12 col-md-6" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+
+          <div class="nome">
+            <label for="name">Nome Produto</label>
+            <input (change)="changeValue($event)" type="text" class="form-control" id="nome" name="nome" formControlName="nome"> 
+          </div>
+
+          <div class="categoria">
+            <p>Categoria</p>
+            <select (change)="changeValue($event)" type="text" class="form-control-select" id="categoria"name="categoria" formControlName="categoria">
+              <option *ngFor="let categoria of sproductList" value="{{categoria.categoria}}">
+                {{categoria.categoria}}
+            </option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-success btnBusc">Buscar</button>
+        </div>
+        
+    
+        
+      </form>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+    <table id="table" class="table table-striped">
+      <thead>
+        <tr>
+          <!-- <th>ID Produto</th> -->
+          <th>Nome</th>
+          <th>Categoria</th>
+          <th>Valor</th>
+        </tr>
+      </thead>
+      <tbody> 
+        <tr *ngFor="let product of product | paginate: { itemsPerPage: count, currentPage: p }"> 
+          <td [style.display]="'none'">{{product.id}}</td>
+          <td>{{product.nome}}</td>
+          <td>{{product.categoria}}</td>
+          <td>{{product.valor}}</td>
+          <td>
+              <button (click)="productUpdate(product.id)" class="btn btn-primary widthBut bts">Editar</button>
+          </td>
+          <td>
+            <button class="btn btn-danger widthBut bts" data-toggle="modal" data-target="#exampleModal" (click)="enviarModal(product.id, product.nome)">Excluir</button>
+          </td>
+          <td>
+            <button (click)="productDetails(product.id)" class="btn btn-success widthBut bts">Consultar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="text-right">
+      <pagination-controls (pageChange)="p = $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
+      <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+    </div>
+  </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Deseja excluir o produto {{nomeProduto}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+        <button type="button" (click)="deleteProduct()" class="btn btn-primary" data-dismiss="modal">Excluir</button>
+      </div>
+    </div>
+  </div>
+</div>
+<h2 class="spinner" *ngIf="loader"></h2>  
+<body class="colorLoad">
+  
+</body>

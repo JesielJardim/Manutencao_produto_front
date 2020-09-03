@@ -1,0 +1,83 @@
+.btn-success {
+    margin-top: 11px;
+}
+
+.error{
+    background-color: red;
+}
+th, td {
+    text-align: left;
+    line-height: 1px;
+}
+
+.table-responsive {
+    margin-bottom: -26px;
+}
+
+.text-right {
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    line-height: 12px !important;
+    margin-bottom: 2px !important;
+}
+
+tr {
+    font-size: 12px;
+}
+
+.fields {
+    font-size: 12px;
+    margin-top: 27px;
+}
+.colTwo {
+    margin-left: 30px !important;
+}
+
+.col-form-label-sm {
+    font-size: 0.77rem !important;
+    margin-right: -7.3rem;
+}
+
+.form-group {
+    margin-bottom: 0.5rem;
+
+}
+
+.btnDark {
+    margin-left: 104px;
+    margin-top: -53px;
+}
+
+select {
+    height: 50px;
+    margin-top: -7px;
+    width: 99%;
+    border-radius: 4px;
+}
+
+.font {
+    color: black;
+}
+
+.btn {
+    margin-top: 0.99rem !important;
+}
+
+  /* loader */
+
+  .spinnerDetails {
+    border: 8px solid rgba(0, 0, 0, .1);
+    border-left-color: #009C33;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    -webkit-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
+    margin-top: 56px;
+    margin-bottom: 25px;
+    margin-left: 505px;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }

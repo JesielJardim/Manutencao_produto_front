@@ -1,0 +1,47 @@
+.nome {
+    width: 100%;
+}
+
+.categoria {
+    margin-top: -70px;
+    margin-left: 268px;
+    width: 100%;
+    
+}
+
+.form-group {
+    margin-bottom: 1rem;
+    margin-right: -338px;
+}
+
+.form-control {
+    width: 29%;
+    height: 39px;
+}
+
+th, td {
+    text-align: left;
+}
+
+.table {
+    margin-bottom: 0rem !important;
+}
+
+.widthBut {
+    width: 60%;
+}
+
+.btnBusc {
+    margin-top: 17px;
+}
+
+select {
+    height: 37px;
+    margin-top: -7px;
+    width: 29%;
+    border-radius: 4px;
+}
+
+.bts {
+    margin-right: 29px;
+}

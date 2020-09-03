@@ -1,0 +1,15 @@
+.selectInsert {
+    width: 100%;
+    height: 57px;
+    border-radius: 4px;
+}
+
+.btnDark {
+    margin-left: 123px;
+    margin-top: -37px;
+}
+
+.error{
+    background-color: red;
+}
+
