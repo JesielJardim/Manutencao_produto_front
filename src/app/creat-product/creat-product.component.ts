@@ -21,6 +21,8 @@ export class CreatProductComponent implements OnInit {
   bsModalRef: BsModalRef;
   error: boolean = false;
   errorValue: boolean = false;
+  valorProduto: string;
+  nomeProduto: string;
 
   constructor(private productService: ProductService,
     private router: Router,
@@ -36,23 +38,23 @@ export class CreatProductComponent implements OnInit {
 
   save() {
 
-    if (this.formSearch.get('nome').value === '' || this.formSearch.get('valor').value === '' ) {}
-    
-    //   this.messageError = "Nome e Valor do produto é obrigatório";
-    //   this.typeErro = "danger";
-    //   this.handleError(this.messageError, this.typeErro);
-    //   this.error = true;
-    //   this.errorValue = true;
+    if((this.nomeProduto === '' || this.nomeProduto === undefined) || (this.valorProduto === '' || this.valorProduto === undefined)){
 
+             this.messageError = "Nome e Valor do produto é obrigatório";
+             this.typeErro = "danger";
+             this.handleError(this.messageError, this.typeErro);
+             this.error = true;
+             this.errorValue = true;
 
-    // }else{
-      this.productService.createProdutct(this.product)
-        .subscribe(data => console.log(data), error => console.log(error));
-      this.product = new Product();
-      this.list();
-
-    // }
-
+    }else {
+      
+            this.productService.createProdutct(this.product)
+           .subscribe(data => console.log(data), error => console.log(error));
+            this.product = new Product();
+            this.list();
+  
+  
+  }
   }
 
   initForm() {
@@ -64,6 +66,7 @@ export class CreatProductComponent implements OnInit {
   }
 
   onSubmit() {
+
     this.submitted = true;
     this.save();    
   }
@@ -83,6 +86,12 @@ export class CreatProductComponent implements OnInit {
     this.list();
   }
 
+  teste(value, nome){
+
+    this.valorProduto= value;
+    this.nomeProduto = nome;
+
+  }
 
   handleError(messageError: string, typeError: string) {
     this.bsModalRef = this.modalService.show(AlertModalComponent);
