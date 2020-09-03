@@ -50,7 +50,19 @@ export class ProductDetailsComponent implements OnInit {
          console.log(data)
          this.product = data;
          this.loaderDetails = false;
+         this.populaDadosForm(data);
        }, error => console.log(error)); 
+  }
+
+  populaDadosForm(dados) {
+
+    this.formSearch.patchValue({
+
+        nome: dados.nome,
+        categoria: dados.categoria,
+        valor: dados.valor
+        
+    });
   }
 
   cancelar() {
@@ -121,4 +133,10 @@ export class ProductDetailsComponent implements OnInit {
     this.bsModalRef.content.type = typeError;
     this.bsModalRef.content.message = messageError;
   }
+
+  sproductList = [
+    {categoria: ""},
+    {categoria: "Perecivel"},
+    {categoria: "Nao Perecivel"}
+  ]
 }
